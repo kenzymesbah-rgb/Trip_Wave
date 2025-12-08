@@ -1,2 +1,73 @@
-public class Employee {
+import java.util.ArrayList;
+
+public class Employee extends Person implements Manageable {
+
+    private int employeeID;
+    private String position;
+    private double salary;
+    private ArrayList<Trip> managedTrips = new ArrayList<>();
+    private ArrayList<Booking> managedBookings = new ArrayList<>();
+    public Employee(String fullName, String email,String password_hash, String phoneNumber,int id, String position, double salary) {
+        super(fullName,email,password_hash,phoneNumber);
+        this.employeeID = id;
+        this.position = position;
+        this.salary = salary;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public void showInfo() {
+        System.out.println("Employee ID: " + employeeID);
+        System.out.println("Name: " + getFullName());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Phone: " + getPhoneNumber());
+        System.out.println("Position: " + position);
+        System.out.println("Salary: " + salary);
+    }
+
+    @Override
+    public void add() {
+        System.out.println("Use Manager class to add employees.");
+    }
+
+    @Override
+    public void update() {
+        System.out.println("Use Manager class to update employees.");
+    }
+
+    @Override
+    public void delete() {
+        System.out.println("Use Manager class to delete employees.");
+    }
+
+    @Override
+    public void display() {
+        this.showInfo();
+    }
+    public void updateBookingStatus(int bookingID, String status) {
+        System.out.println("Booking " + bookingID + " updated to: " + status);
+    }
+
+    public void updateTripStatus(int tripID, String status) {
+        System.out.println("Trip " + tripID + " updated to: " + status);
+    }
 }
