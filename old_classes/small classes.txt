@@ -1,0 +1,97 @@
+
+public class LinkSQL {
+}
+
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+
+    }
+}
+
+
+
+
+public interface Manageable {
+  
+    // لإضافة عنصر جديد
+    void add();
+
+    // لتحديث البيانات
+    void update();
+
+    // لحذف عنصر
+    void delete();
+
+    // لعرض تفاصيل العنصر
+    void display();
+
+}
+
+
+import java.util.ArrayList;
+
+public class Manager {
+        private ArrayList<Customer> customers = new ArrayList<>();
+        private ArrayList<Employee> employees = new ArrayList<>();
+
+        // إدارة أي Manageable من نوع Customer
+        public void addCustomer(Customer c) {
+            customers.add(c);
+            System.out.println("Customer added: " + c.getFullName());
+        }
+
+        public void removeCustomer(Customer c) {
+            customers.remove(c);
+            System.out.println("Customer removed: " + c.getFullName());
+        }
+
+        public void displayAllCustomers() {
+            for (Customer c : customers) c.display(); // display من Manageable
+        }
+
+        // نفس الكلام للموظفين
+        public void addEmployee(Employee e) {
+            employees.add(e);
+            System.out.println("Employee added: " + e.getFullName());
+        }
+
+        public void removeEmployee(Employee e) {
+            employees.remove(e);
+            System.out.println("Employee removed: " + e.getFullName());
+        }
+
+        public void displayAllEmployees() {
+            for (Employee e : employees) e.display(); // display من Manageable
+        }
+    }
+
+
+
+
+
+public interface Payable {
+    // يحسب اجمالي السعر بناءً على عدد الأشخاص وسعر الرحلة
+    double calculateTotalPrice();
+  
+    // ينفّذ عملية الدفع (مثلاً تغيير PaymentStatus)
+    boolean processPayment(double amount);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
